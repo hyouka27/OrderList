@@ -1,0 +1,15 @@
+C:\Users\haruto\Source\Repos\OrderList\bin\Debug\OrderList.exe.config
+C:\Users\haruto\Source\Repos\OrderList\bin\Debug\OrderList.exe
+C:\Users\haruto\Source\Repos\OrderList\bin\Debug\OrderList.pdb
+C:\Users\haruto\Source\Repos\OrderList\obj\Debug\OrderList.csprojAssemblyReference.cache
+C:\Users\haruto\Source\Repos\OrderList\obj\Debug\MainWindow.g.cs
+C:\Users\haruto\Source\Repos\OrderList\obj\Debug\App.g.cs
+C:\Users\haruto\Source\Repos\OrderList\obj\Debug\OrderList_MarkupCompile.cache
+C:\Users\haruto\Source\Repos\OrderList\obj\Debug\OrderList_MarkupCompile.lref
+C:\Users\haruto\Source\Repos\OrderList\obj\Debug\MainWindow.baml
+C:\Users\haruto\Source\Repos\OrderList\obj\Debug\OrderList.g.resources
+C:\Users\haruto\Source\Repos\OrderList\obj\Debug\OrderList.Properties.Resources.resources
+C:\Users\haruto\Source\Repos\OrderList\obj\Debug\OrderList.csproj.GenerateResource.cache
+C:\Users\haruto\Source\Repos\OrderList\obj\Debug\OrderList.csproj.CoreCompileInputs.cache
+C:\Users\haruto\Source\Repos\OrderList\obj\Debug\OrderList.exe
+C:\Users\haruto\Source\Repos\OrderList\obj\Debug\OrderList.pdb
