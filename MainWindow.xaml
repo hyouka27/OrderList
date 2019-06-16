@@ -1,52 +1,107 @@
-﻿<Window x:Class="OrderList.MainWindow"
+﻿<Window x:Class="OrderMasters.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OrderList"
-        mc:Ignorable="d"
-        Title="Order List" Height="450" Width="800">
+        Title="OrderMasters" Height="320" Width="570" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="65"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-
-        <TextBlock Text="Dodaj produkt"/>
-        
-        <ItemsControl Grid.Row="1" x:Name="list" ItemsSource="{Binding Product}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Vertical"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-           
-            
-        <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Name}"/>
-                        <CheckBox IsChecked="{Binding Checked}" Grid.Column="1"/>
-
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-        
-        
-        <Grid Grid.Row="2">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="*" MinWidth="80"/>
-        </Grid.ColumnDefinitions>
-            <TextBox Text="{Binding ProductName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-            <Button Grid.Column="1" Content="Dodaj produkt" Command="{Binding CreateItem}" CommandParameter="{Binding}"/>
-        </Grid>
+        <ListView Grid.Row="0" Margin="2,2,2,1" 
+            x:Name="lstItems" ItemsSource="{Binding}" SelectionChanged="LstItems_SelectionChanged">
+            <ListView.View>
+                <GridView AllowsColumnReorder="True">
+                    <GridViewColumn>
+                        <GridViewColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="Nazwa produktu"  Margin="2" />
+                            </DataTemplate>
+                        </GridViewColumn.HeaderTemplate>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Margin="2"
+                                        Text="{Binding Path=Product}" />
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn>
+                        <GridViewColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="Ilość" Margin="2" />
+                            </DataTemplate>
+                        </GridViewColumn.HeaderTemplate>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Margin="2"
+                                        Text="{Binding Path=CountProduct}" />
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn>
+                        <GridViewColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="Cena/SZT" Margin="2" />
+                            </DataTemplate>
+                        </GridViewColumn.HeaderTemplate>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Margin="2"
+                                        Text="{Binding Path=Price}" />
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn>
+                        <GridViewColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="Cena całkowita" Margin="2" Width="96" />
+                            </DataTemplate>
+                        </GridViewColumn.HeaderTemplate>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Margin="2"
+                                        Text="{Binding Path=Priceall}" />
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn>
+                        <GridViewColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="2" />
+                            </DataTemplate>
+                        </GridViewColumn.HeaderTemplate>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Margin="2"
+                                        Text="PLN" />
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <WrapPanel Grid.Row="1" RenderTransformOrigin="0.521,0.6">
+            <Label x:Name="label"  Content="Podaj nazwę produktu: " Width="130"/>
+            <TextBox x:Name="NameProduct" Height="22" TextWrapping="Wrap" Width="125" Margin="5" />
+            <Label x:Name="label1" Content="Ilość" Width="33"/>
+            <TextBox x:Name="QTY" Height="22" TextWrapping="Wrap" Width="23" Margin="5" />
+            <Label x:Name="label2" Content="Cena"/>
+            <TextBox x:Name="PrieceP" Height="22" TextWrapping="Wrap"  Width="24" Margin="5"/>
+            <Button Content="Dodaj" x:Name="btnAdd" Margin="5"
+                Click="btnAdd_Click" Width="38" />
+            <Button Content="Usuń" x:Name="btnDelete" Margin="5" 
+                Click="btnDelete_Click" Width="32" />
+            <Button Name="btnSaveFile" Click="btnSaveFile_Click"  Margin="5">Zapisz</Button>
+        </WrapPanel>
     </Grid>
+    
 </Window>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrderList.Properties
+namespace OrderMasters.Properties
 {
 
 
